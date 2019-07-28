@@ -2,6 +2,10 @@
   margin: 150px auto 0;
   width: 500px;
 
+  @include media("<small") {
+    width: 90%;
+  }
+
   .input-box {
     @include flex-column();
     align-items: flex-start;

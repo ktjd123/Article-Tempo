@@ -1,0 +1,16 @@
+.detail {
+  .title {
+    margin-top: 150px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .content {
+    width: 90%;
+    margin: 20px auto 0;
+    img {
+      @include media("<small") {
+        width: 100% !important;
+      }
+    }
+  }
+}

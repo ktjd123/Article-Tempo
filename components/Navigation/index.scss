@@ -36,8 +36,19 @@
         }
       }
     }
+
+    .buttons {
+      @include flex();
+      width: 200px;
+      @include media("<small") {
+        width: 150px;
+      }
+    }
     .dashboard {
       @include button();
+      @include media("<small") {
+        font-size: 0.8rem;
+      }
     }
   }
 }

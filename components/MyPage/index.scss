@@ -1,0 +1,31 @@
+.my-page {
+  @include show();
+
+  .id {
+    margin-top: 150px;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .list-table {
+    margin: 20px auto 0;
+    @include box(1000px);
+
+    @include media("<small") {
+      width: 90%;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+
+    th {
+      padding: 20px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+  }
+}

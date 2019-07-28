@@ -8,7 +8,7 @@ enum roleEnum {
   User
 }
 
-interface authInterface {
+export interface authInterface {
   _id: string;
   id: string;
   role: roleEnum;

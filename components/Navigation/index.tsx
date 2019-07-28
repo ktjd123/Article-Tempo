@@ -35,9 +35,14 @@ class index extends Component<Props> {
               </a>
             </Link>
             {auth!.auth !== undefined ? (
-              <Link href="/write">
-                <a className={cx("dashboard")}>글쓰기</a>
-              </Link>
+              <div className={cx("buttons")}>
+                <Link href="/mypage">
+                  <a className={cx("dashboard")}>마이페이지</a>
+                </Link>
+                <Link href="/write">
+                  <a className={cx("dashboard")}>글쓰기</a>
+                </Link>
+              </div>
             ) : (
               <Link href="/auth">
                 <a className={cx("dashboard")}>로그인</a>
