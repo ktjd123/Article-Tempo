@@ -8,12 +8,15 @@ import { css } from "glamor";
 
 // stores
 import AuthStore from "../store/auth";
+import PostStore from "../store/post";
 
 import { PageHead } from "../components";
 
+import "quill/dist/quill.snow.css";
 import "../styles/default.scss";
 
 const auth = new AuthStore();
+const post = new PostStore();
 
 export default class MyApp extends App {
   render() {
@@ -28,7 +31,7 @@ export default class MyApp extends App {
             background: "black"
           })}
         />
-        <Provider auth={auth}>
+        <Provider auth={auth} post={post}>
           <Component {...this.state} {...pageProps} />
         </Provider>
       </Container>

@@ -1,0 +1,39 @@
+.new-project {
+  margin: 150px auto 0;
+  width: 500px;
+
+  .input-box {
+    @include flex-column();
+    align-items: flex-start;
+
+    & + .input-box {
+      margin-top: 30px;
+    }
+
+    .input-title {
+      font-size: 2rem;
+    }
+
+    input {
+      margin-top: 20px;
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: white;
+    }
+  }
+
+  .submit {
+    margin-top: 50px;
+
+    @include button();
+    width: 100%;
+  }
+}
+
+.quill {
+  margin-top: 20px;
+  background: white;
+}

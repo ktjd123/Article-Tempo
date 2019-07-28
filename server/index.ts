@@ -31,7 +31,7 @@ app.prepare().then(() => {
   // Parse application/x-www-form-urlencoded
   server.use(bodyParser.urlencoded({ extended: false }));
   // Parse application/json
-  server.use(bodyParser.json());
+  server.use(bodyParser.json({ limit: "100mb" }));
 
   // Theseed Custom
   server.use(compression());
