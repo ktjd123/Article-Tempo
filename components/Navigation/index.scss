@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap");
+
+.navigation {
+  margin-top: 70px;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.16);
+    @include flex();
+    justify-content: space-between;
+    padding: 0 50px;
+
+    @include media("<small") {
+      padding: 0 10px;
+    }
+
+    .logo {
+      font-family: "Major Mono Display", monospace;
+      font-size: 2rem;
+
+      @include media("<small") {
+        font-size: 1.2rem;
+      }
+
+      .sub-logo {
+        margin-left: 10px;
+        font-size: 1.2rem;
+
+        @include media("<small") {
+          margin-left: 5px;
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .dashboard {
+      @include button();
+    }
+  }
+}

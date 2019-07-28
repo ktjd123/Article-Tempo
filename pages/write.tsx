@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { observable, action } from "mobx";
 import { observer, inject } from "mobx-react";
-import { PageHead, Navigation } from "../components";
+import { Navigation } from "../components";
 
+interface Props {}
 @observer
-class index extends Component {
+class write extends Component<Props> {
   render() {
     return (
       <div>
-        <PageHead />
         <Navigation />
       </div>
     );
   }
 }
-export default index;
+export default write;

@@ -1,0 +1,36 @@
+.auth {
+  margin: 30vh auto 0;
+  @include box(300px);
+  @include show();
+
+  input {
+    width: 100%;
+    height: 30px;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    border-radius: $border-radius;
+    border: 1px solid #ddd;
+
+    & + input {
+      margin-top: 5px;
+    }
+  }
+
+  .buttons {
+    @include flex();
+    margin-top: 10px;
+    justify-content: space-between;
+
+    a {
+      width: 40%;
+
+      &.login {
+        @include button();
+      }
+
+      &.register {
+        @include button-reverse();
+      }
+    }
+  }
+}
