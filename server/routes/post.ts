@@ -59,6 +59,7 @@ router.get("/detail/:id", async (req, res) => {
     return res.json({ code: 1 });
 
   const post = await Post.findById(id).lean();
+  if (!post) return res.json({ code: 2 });
   const account = await Account.findById(post.account, {
     id: true,
     role: true

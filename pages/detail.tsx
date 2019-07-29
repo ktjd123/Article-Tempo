@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Head from "next/head";
+import Router from "next/router";
 import axios from "axios";
 import { observable, action } from "mobx";
 import { observer, inject } from "mobx-react";
@@ -23,6 +23,10 @@ interface Props {
 class detail extends Component<Props> {
   static async getInitialProps({ query }) {
     const result = await axios.get(`/api/post/detail/${query._id}`);
+
+    // if (result.data.code && result.data.code === 2) {
+    //   Router.push("/");
+    // }
 
     return { ...query, data: result.data };
   }

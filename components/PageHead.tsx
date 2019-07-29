@@ -8,6 +8,10 @@ const PageHead = ({
 }) => (
   <Head>
     <title>{title}</title>
+    <meta
+      name="naver-site-verification"
+      content="901eb3a81658e4489f76e975360e51b95ca49229"
+    />
     <meta name="description" content={description} />
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
