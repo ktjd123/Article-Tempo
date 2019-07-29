@@ -4,3 +4,4 @@ export { default as AuthC } from "./Auth";
 export { default as NewPost } from "./NewPost";
 export { default as MyPageC } from "./MyPage";
 export { default as DetailC } from "./Detail";
+export { default as MainC } from "./Main";

@@ -1,0 +1,43 @@
+.index {
+  width: 1000px;
+  margin: 50px auto 0;
+
+  @include media("<small") {
+    width: 90%;
+  }
+
+  .how-about {
+    font-size: 2rem;
+  }
+
+  .suggestion-posts {
+    margin: 20px auto;
+    width: 1000px;
+
+    @include media("<small") {
+      width: 90%;
+    }
+
+    .sugg-post {
+      @include box(100%);
+      @include flex-column();
+
+      &:active {
+        background: #ddd;
+      }
+
+      & + .sugg-post {
+        margin-top: 10px;
+      }
+
+      img {
+        max-height: 100px;
+      }
+
+      .title {
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 stage:
   scheme: sftp
-  host:
+  host: 52.78.136.192
   port: 22
   user: ubuntu
   path:

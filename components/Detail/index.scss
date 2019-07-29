@@ -4,13 +4,27 @@
     font-size: 2rem;
     text-align: center;
   }
+  .sub-title {
+    text-align: center;
+  }
   .content {
-    width: 90%;
+    width: 1000px;
     margin: 20px auto 0;
-    img {
-      @include media("<small") {
-        width: 100% !important;
-      }
+
+    @include media("<small") {
+      width: 90%;
     }
+    img {
+      display: block;
+      width: 100% !important;
+      margin: 10px 0;
+    }
+  }
+
+  .ad {
+    display: block;
+    margin: 50px auto 0;
+    width: 300px;
+    height: 250px;
   }
 }

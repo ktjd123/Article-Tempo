@@ -6,6 +6,38 @@ import { imgPro, toBase64 } from "../lib/ImgPro";
 
 const router = express();
 
+function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+router.get("/suggestions", async (req, res) => {
+  const postsToSend = [];
+  const documentCount = await Post.countDocuments();
+
+  for (let i = 0; i < 3; i++) {
+    const randomInt = getRandomInt(0, documentCount - 1);
+    const post = await Post.findOne(
+      {},
+      { title: true, thumbImage: true, viewCount: true }
+    )
+      .skip(randomInt)
+      .lean();
+
+    post.thumbImage = await toBase64(post.thumbImage.buffer);
+    postsToSend.push(post);
+  }
+
+  return res.json(postsToSend);
+});
+
+router.get("/all/list", async (req, res) => {
+  const posts = await Post.find({}, { title: true })
+    .sort({ _id: -1 })
+    .lean();
+
+  return res.json(posts);
+});
+
 router.get("/thumbImage/:id", async (req, res) => {
   const { id } = req.params;
   if (mongoose.Types.ObjectId.isValid(id) !== true)
@@ -34,6 +66,10 @@ router.get("/detail/:id", async (req, res) => {
   post.thumbImage = await toBase64(post.thumbImage.buffer);
   post.account = account;
 
+  const postToChange = await Post.findById(id, { _id: true, viewCount: true });
+  postToChange!.viewCount += 1;
+  await postToChange!.save();
+
   return res.json(post);
 });
 
@@ -44,7 +80,9 @@ router.get("/list", async (req, res) => {
   const posts = await Post.find(
     { account: req.session!.info._id },
     { title: true, viewCount: true }
-  );
+  )
+    .sort({ _id: -1 })
+    .lean();
 
   return res.json(posts);
 });

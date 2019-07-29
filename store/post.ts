@@ -4,6 +4,7 @@ import { authInterface } from "./auth";
 
 const APIHOST = "/api/post";
 const APIS = {
+  suggestionList: APIHOST + "/suggestions",
   mylist: APIHOST + "/list",
   detail: APIHOST + "/detail",
   write: APIHOST + "/write"
@@ -24,12 +25,30 @@ interface detailPost {
   thumbImage: string;
 }
 
+interface suggestionList {
+  _id: string;
+  title: string;
+  thumbImage: string;
+}
+
 export default class post {
   @observable postList: [postList] = [
     { _id: "iii", title: "타이틀", viewCount: 0 }
   ];
 
   @observable detailPost: detailPost | undefined;
+
+  @observable suggestionsList: Array<suggestionList> = [];
+
+  @action getSuggestionList = async () => {
+    const result = await axios.get(APIS.suggestionList);
+
+    runInAction(() => {
+      this.suggestionsList = result.data;
+    });
+
+    return this.suggestionsList;
+  };
 
   @action getMyList = async () => {
     const result = await axios.get(APIS.mylist);

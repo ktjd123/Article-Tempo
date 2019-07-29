@@ -36,7 +36,7 @@ class detail extends Component<Props> {
           image={`/api/post/thumbImage/${_id}`}
         />
         <Navigation />
-        <DetailC data={data} />
+        <DetailC data={data} _id={_id} />
       </div>
     );
   }

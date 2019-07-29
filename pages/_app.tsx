@@ -1,4 +1,6 @@
 import React from "react";
+import Router from "next/router";
+import withGA from "next-ga";
 import App, { Container } from "next/app";
 import { Provider } from "mobx-react";
 
@@ -18,12 +20,11 @@ import "../styles/default.scss";
 const auth = new AuthStore();
 const post = new PostStore();
 
-export default class MyApp extends App {
+class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <PageHead />
         <ToastContainer
           autoClose={3000}
           position="bottom-center"
@@ -38,3 +39,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withGA("UA-144736681-1", Router)(MyApp);

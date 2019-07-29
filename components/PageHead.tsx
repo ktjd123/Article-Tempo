@@ -1,10 +1,10 @@
 import Head from "next/head";
 
 const PageHead = ({
-  title = "Article Tempo",
+  title = "아티클 템포",
   description = "Dekina Inc.",
-  url = "121.189.66.115",
-  image = "img"
+  url = "http://article.tempo.dekina.com",
+  image = ""
 }) => (
   <Head>
     <title>{title}</title>
@@ -19,7 +19,6 @@ const PageHead = ({
     <meta property="og:image" content={url + image} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="500" />
-    <meta property="og:url" content={url} />
     <meta property="og:description" content={description} />
   </Head>
 );
