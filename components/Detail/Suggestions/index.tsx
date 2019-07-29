@@ -42,10 +42,10 @@ class index extends Component<Props> {
       <div className={cx("index")}>
         <h1 className={cx("how-about")}>이런 게시글은 어떠신가요?</h1>
         <div className={cx("suggestion-posts")}>
-          {suggestionsList.map(item => (
+          {suggestionsList.map((item, i) => (
             <Link
               href={{ pathname: "/detail", query: { _id: item._id } }}
-              key={item._id}
+              key={i}
             >
               <a className={cx("sugg-post")}>
                 <img src={item.thumbImage} alt={item.title} />

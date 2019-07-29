@@ -29,6 +29,8 @@ class index extends Component<Props> {
       <div className={cx("detail")}>
         <h1 className={cx("title")}>{data.title}</h1>
         <h2 className={cx("sub-title")}>조회수 {data.viewCount}</h2>
+        <h2 className={cx("sub-title")}>작성자 {data.account.id}</h2>
+
         <iframe
           width="300"
           height="250"
